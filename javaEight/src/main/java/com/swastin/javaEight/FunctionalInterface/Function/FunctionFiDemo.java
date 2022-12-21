@@ -8,9 +8,7 @@ import java.util.function.LongFunction;
 
 public class FunctionFiDemo {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
+	public static void main(String[] args) {	
 System.out.println("hi");
 /*Taking input as Integer and output as Integer*/
 Function<Integer,Integer> function =(x)->x*x;
