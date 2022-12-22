@@ -63,6 +63,7 @@ public class StreamApiDemo {
 		 System.out.println("--------------noneMatch------------");
 		 System.out.println(Arrays.asList(2, 3, 4, 5, 6, 7, 8, 9, 10).stream().noneMatch(x->x<2)); 
 		 System.out.println(Arrays.asList("sw","swa","sa","sahoo").stream().noneMatch(x->x.startsWith("s")));
+		 System.out.println(Arrays.asList("sw","swa","sa","sahoo").stream().anyMatch(x->x.startsWith("s")));
 		 
 	}
 
