@@ -64,7 +64,10 @@ public class StreamApiDemo {
 		 System.out.println(Arrays.asList(2, 3, 4, 5, 6, 7, 8, 9, 10).stream().noneMatch(x->x<2)); 
 		 System.out.println(Arrays.asList("sw","swa","sa","sahoo").stream().noneMatch(x->x.startsWith("s")));
 		 System.out.println(Arrays.asList("sw","swa","sa","sahoo").stream().anyMatch(x->x.startsWith("s")));
-		 
+		 /*min,max,count*/
+		 System.out.println(Arrays.asList(2, 3, 4, 5, 6, 7, 8, 9, 10).stream().max(Integer::compare).get());
+		 System.out.println(Arrays.asList(2, 3, 4, 5, 6, 7, 8, 9, 10).stream().min(Integer::compare).get());
+		 System.out.println(Arrays.asList(2, 3, 4, 5, 6, 7, 8, 9, 10).stream().count());
 	}
 
 }
