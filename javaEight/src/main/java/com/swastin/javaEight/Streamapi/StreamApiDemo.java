@@ -1,5 +1,4 @@
 package com.swastin.javaEight.Streamapi;
-
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Random;
@@ -7,6 +6,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamApiDemo {
+
+	private static boolean allMatch;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -47,8 +48,22 @@ public class StreamApiDemo {
 		System.out.println(
 				Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).stream().reduce(0, (sum, element) -> sum + element)
 				);
+		/*Terminal operations*/
+		System.out.println("--------------findAny------------");
+		Integer integer = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).stream().findAny().get();
+		System.out.println(integer);
+		System.out.println("-------------findFirst-------------");
+		Integer integer2 = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).stream().findFirst().get();
+		System.out.println(integer2);
 		
-
+		/*AnyMatch,allMatch,noneMatch*/
+		System.out.println("--------------allMatch------------");
+		 System.out.println(Arrays.asList(2, 3, 4, 5, 6, 7, 8, 9, 10).stream().allMatch(x->x<2)); 
+		 System.out.println(Arrays.asList("sw","swa","sa","sahoo").stream().allMatch(x->x.startsWith("s"))); 
+		 System.out.println("--------------noneMatch------------");
+		 System.out.println(Arrays.asList(2, 3, 4, 5, 6, 7, 8, 9, 10).stream().noneMatch(x->x<2)); 
+		 System.out.println(Arrays.asList("sw","swa","sa","sahoo").stream().noneMatch(x->x.startsWith("s")));
+		 
 	}
 
 }
