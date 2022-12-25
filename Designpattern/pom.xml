@@ -2,12 +2,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.log4j</groupId>
-  <artifactId>log4jDemo</artifactId>
+  <groupId>com.Designpattern</groupId>
+  <artifactId>Designpattern</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>log4jDemo</name>
+  <name>Designpattern</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -23,12 +23,5 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
-<dependency>
-    <groupId>org.apache.logging.log4j</groupId>
-    <artifactId>log4j-core</artifactId>
-    <version>2.19.0</version>
-</dependency>
-    
   </dependencies>
 </project>
