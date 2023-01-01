@@ -1,7 +1,9 @@
+
+
 FROM ubuntu:20.04
 
 # Install the Java runtime
-RUN apt-get update && apt-get install -y openjdk-8-jdk
+RUN apt-get update && apt-get install -y openjdk-16-jdk
 
 # Create a directory for the application code
 RUN mkdir /app
