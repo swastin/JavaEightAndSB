@@ -24,7 +24,14 @@ public class Roleservice {
 	  public Roles addRole(Roles role) {
 		    return roleRepository.save(role);
 		  }
-
+public Roles updateRole(Integer Id,Roles role) {
+	 Roles role1 = this.getRolesById(Id);
+	  role.setName(role.getName());
+	  Roles updatedRole =roleRepository.save(role);
+      return updatedRole;
+	
+	
+}
 		  public void deleteRole(Integer id) {
 		    roleRepository.deleteById(id);
 		  }
