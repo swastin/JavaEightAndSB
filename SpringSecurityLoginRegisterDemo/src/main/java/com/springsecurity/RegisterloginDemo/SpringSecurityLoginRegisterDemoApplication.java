@@ -1,4 +1,4 @@
-package com.springsecurity.RgisterloginDemo;
+package com.springsecurity.RegisterloginDemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
