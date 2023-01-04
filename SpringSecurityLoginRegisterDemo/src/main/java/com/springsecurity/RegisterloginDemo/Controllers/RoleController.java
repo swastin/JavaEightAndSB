@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,7 +41,7 @@ public class RoleController {
 				
 	}
 	
-	 @PutMapping("/{id}")
+	 @PutMapping("Roles/{id}")
 	  public ResponseEntity<Roles> updateRole(@PathVariable(value = "id") Integer roleId,
 	                                         @Validated @RequestBody Roles roleDetails) {
 		 Roles updateRole = roleService.updateRole(roleId, roleDetails);
@@ -49,4 +50,16 @@ public class RoleController {
 			}
 			return ResponseEntity.ok(updateRole);
 	  }
+	 @DeleteMapping("Roles/{id}")
+	 public ResponseEntity<Roles> deleteRole(@PathVariable(value = "id") Integer roleId) {
+		 Roles role=roleService.getRolesById(roleId);
+		 if(role==null) {
+			 return ResponseEntity.notFound().build(); 
+		 }
+		 else {
+			 roleService.deleteRole(roleId);
+			 return ResponseEntity.ok().build();
+		 }
+				 
+	 }
 }

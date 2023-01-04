@@ -1,6 +1,10 @@
 package com.springsecurity.RegisterloginDemo.models;
 
+import java.time.Instant;
 import java.util.Date;
+
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,8 +15,8 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-@jakarta.persistence.Entity
-@jakarta.persistence.Table(name = "users")
+@Entity
+@Table(name = "users")
 public class Users {
 
   @Id
@@ -41,9 +45,9 @@ public class Users {
   @Column(name = "login_attempts", nullable = false)
   private Integer loginAttempts;
 
-  @Column(name = "created_at", nullable = false)
-  private Date createdAt;
-
+  @Column(name = "created_at", updatable = false)
+  @CreationTimestamp
+  private Instant createdAt;
   public Integer getId() {
     return id;
   }
@@ -100,16 +104,16 @@ public class Users {
     this.loginAttempts = loginAttempts;
   }
 
-  public Date getCreatedAt() {
+  public Instant getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(Date createdAt) {
+  public void setCreatedAt(Instant createdAt) {
     this.createdAt = createdAt;
   }
 
 public Users(String username, String email, String passwordHash, Roles role, Boolean verified, Integer loginAttempts,
-		Date createdAt) {
+		Instant createdAt) {
 	super();
 	this.username = username;
 	this.email = email;
