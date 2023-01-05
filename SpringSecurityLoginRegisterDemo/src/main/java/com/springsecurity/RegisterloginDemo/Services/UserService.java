@@ -26,5 +26,8 @@ public class UserService {
 		  public void deleteUser(Integer id) {
 		    userRepository.deleteById(id);
 		  }
-
+		  public boolean emailExists(String email) {
+			    Users user = userRepository.findByEmail(email);
+			    return user != null;
+}
 }

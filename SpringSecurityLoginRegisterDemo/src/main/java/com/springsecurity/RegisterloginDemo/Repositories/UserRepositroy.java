@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.springsecurity.RegisterloginDemo.models.Users;
 @Repository
 public interface UserRepositroy extends CrudRepository<Users, Integer>  {
-
+Users findByEmail(String Email);
 }
