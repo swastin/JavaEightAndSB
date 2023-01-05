@@ -3,10 +3,11 @@ package com.springsecurity.RegisterloginDemo.Services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.springsecurity.RegisterloginDemo.Repositories.UserRepositroy;
 import com.springsecurity.RegisterloginDemo.models.Users;
-
+@Service
 public class UserService {
 	 @Autowired
 	  private UserRepositroy userRepository;

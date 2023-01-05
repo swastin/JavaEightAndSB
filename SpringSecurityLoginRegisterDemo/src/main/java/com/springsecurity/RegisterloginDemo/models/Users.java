@@ -2,17 +2,23 @@ package com.springsecurity.RegisterloginDemo.models;
 
 import java.time.Instant;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -32,12 +38,12 @@ public class Users {
   @Column(name = "password", nullable = false)
   private String passwordHash;
 
-  @ManyToOne
+  @ManyToMany(cascade= {CascadeType.ALL} ,fetch =FetchType.LAZY)
 //  @JoinColumn(name = "role_id", nullable = false,@ )
   @JoinTable(name = "user_roles",
   joinColumns = @JoinColumn(name = "user_id"),
   inverseJoinColumns = @JoinColumn(name = "role_id"))
-  private Roles role;
+  private List<Roles> roles;
 
   @Column(name = "verified", nullable = false)
   private Boolean verified;
@@ -80,13 +86,6 @@ public class Users {
     this.passwordHash = passwordHash;
   }
 
-  public Roles getRole() {
-    return role;
-  }
-
-  public void setRole(Roles role) {
-    this.role = role;
-  }
 
   public Boolean getVerified() {
     return verified;
@@ -112,13 +111,22 @@ public class Users {
     this.createdAt = createdAt;
   }
 
-public Users(String username, String email, String passwordHash, Roles role, Boolean verified, Integer loginAttempts,
-		Instant createdAt) {
+
+public List<Roles> getRoles() {
+	return roles;
+}
+
+public void setRoles(List<Roles> roles) {
+	this.roles = roles;
+}
+
+public Users(String username, String email, String passwordHash, List<Roles> roles, Boolean verified,
+		Integer loginAttempts, Instant createdAt) {
 	super();
 	this.username = username;
 	this.email = email;
 	this.passwordHash = passwordHash;
-	this.role = role;
+	this.roles = roles;
 	this.verified = verified;
 	this.loginAttempts = loginAttempts;
 	this.createdAt = createdAt;
@@ -127,5 +135,8 @@ public Users(String username, String email, String passwordHash, Roles role, Boo
 public Users() {
 	super();
 }
-  
+ public void addRole(Roles role) {
+	 this.roles.add(role);
+	 
+ } 
 }
