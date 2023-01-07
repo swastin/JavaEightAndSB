@@ -34,9 +34,9 @@ public class RegistrationController {
 	@PostMapping("/Register")
 	public void Register(@Validated @RequestBody Users user)
 	{
-		//Roles role=roleService.getRolesById(3);
+		
 		Roles role= roleService.getRolesByName("USER");
-		//Roles user_role=new Roles(null, "ADMIN");
+		
 		List<Roles> listOfRoles=new  ArrayList<Roles>();
 		listOfRoles.add(role);
 		
@@ -51,4 +51,5 @@ public class RegistrationController {
 public boolean emailExists(@RequestParam String email) {
     return userService.emailExists(email);
   }
+
 }
