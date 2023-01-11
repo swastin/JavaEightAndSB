@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-Built-By: swastin
-Build-Jdk: 17
-Main-Class: com.swastin.DockerDemo.App
-Created-By: Maven Integration for Eclipse
-
